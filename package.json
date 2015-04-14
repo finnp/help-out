@@ -2,7 +2,7 @@
   "name": "help-out",
   "version": "1.0.0",
   "description": "Help people at nodeschool/discussions",
-  "main": "index.js",
+  "bin": "./cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/finnp/help-out/issues"
   },
-  "homepage": "https://github.com/finnp/help-out"
+  "homepage": "https://github.com/finnp/help-out",
+  "dependencies": {
+    "cli-md": "^1.0.0",
+    "minimist": "^1.1.1",
+    "open": "0.0.5"
+  },
+  "preferGlobal": true
 }
