@@ -3,6 +3,7 @@
 var open = require('open')
 var md = require('cli-md')
 var minimist = require('minimist')
+var i = require('inquirer')
 var issuePage = 'https://github.com/nodeschool/discussions/issues'
 
 var opts = minimist(process.argv.slice(2), {default: {open: true}})
@@ -30,7 +31,30 @@ var todos = [
   }
 ]
 
-var help = todos[ Math.floor(Math.random() * todos.length) ]
-console.log(md([ '# ' + help.name, help.desc, help.link].join('\n')).trim())
+var currentTodo = Math.floor(Math.random() * todos.length)
 
-if (opts['open']) open(help.link)
+function printTodo() {
+  currentTodo = (currentTodo + 1) % todos.length
+  var help = todos[currentTodo]
+  console.log(md([ '# ' + help.name, help.desc, help.link].join('\n')).trim())
+  
+  i.prompt([
+    {
+      type: 'list',
+      name: 'todo',
+      message: 'What to do?',
+      choices: ['Open in browser', 'Show another one', 'Close']
+    }
+  ], function (answers) {
+    if(answers.todo === 'Open in browser') open(help.link)
+    if(answers.todo === 'Show another one') printTodo()
+    if(answers.todo === 'Close') console.log('Ok, bye!')
+  })
+}
+
+printTodo()
+
+
+
+
+

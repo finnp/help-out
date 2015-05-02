@@ -16,5 +16,3 @@ https://github.com/nodeschool/discussions/issues?q=is%3Aopen+is%3Aissue+comments
 ```
 
 This is a very first version, if you have any suggestions please fork and PR.
-
-Pass `--no-open` if you don't want the page to be automatically opened for you.
