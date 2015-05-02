@@ -2,11 +2,8 @@
 
 var open = require('open')
 var md = require('cli-md')
-var minimist = require('minimist')
 var i = require('inquirer')
 var issuePage = 'https://github.com/nodeschool/discussions/issues'
-
-var opts = minimist(process.argv.slice(2), {default: {open: true}})
 
 var todos = [
   {
